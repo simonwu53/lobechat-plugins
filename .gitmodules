@@ -1,0 +1,3 @@
+[submodule "external/chat-plugin-sdk"]
+	path = external/chat-plugin-sdk
+	url = git@github.com:simonwu53/lobechat-plugin-sdk.git
