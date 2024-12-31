@@ -1,2 +1,2 @@
-# lobechat-plugin-currency
-A LobeChat plugin for monitoring bank exchange rates
+# lobechat-plugins
+A front-end Vue.js framework for LobeChat plugins
