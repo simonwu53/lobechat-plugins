@@ -10,7 +10,7 @@ const router = createRouter({
       component: PluginNotFound,
     },
     {
-      path: '/exchangeRate',
+      path: '/exchange-rate',
       name: 'exchangeRate',
       component: () => import('../views/ExchangeRate.vue'),
     },
