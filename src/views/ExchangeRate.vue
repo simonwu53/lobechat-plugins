@@ -10,7 +10,6 @@ const currencyData = ref<CurrencyResponseData>();
 onMounted(async () => {
   // Fetch plugin message from LobeChat
   lobeChat.getPluginMessage().then((e: CurrencyResponseData) => {
-    console.log('lobeChat response message: ', JSON.stringify(e, null, 2));
     currencyData.value = e;
   });
 });

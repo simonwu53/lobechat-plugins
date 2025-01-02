@@ -154,6 +154,10 @@ watchEffect(() => {
   <div v-if="isDataLoaded">
     <v-chart class="chart" :option="option" :theme="darkTheme" autoresize />
   </div>
+  <div v-else class="flex flex-col justify-center items-center h-screen">
+    <div class="w-10 h-10 border-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
+    <div class="mt-2 text-gray-700 text-lg">Loading data...</div>
+  </div>
 </template>
 
 <style scoped>
