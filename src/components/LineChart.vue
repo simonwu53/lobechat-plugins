@@ -15,7 +15,7 @@ import {
   ToolboxComponent
 } from 'echarts/components';
 import VChart, { THEME_KEY } from 'vue-echarts';
-import { EChartsOption } from 'echarts';
+import type { EChartsOption, LineSeriesOption } from 'echarts/types/dist/shared';
 
 import {ref, provide, defineProps, watchEffect} from 'vue';
 
@@ -73,7 +73,7 @@ const option = ref<EChartsOption>({
     nameLocation: 'middle',
     nameGap: 30,
     type: 'time',
-    boundaryGap:false,
+    // boundaryGap: false,
   },
   yAxis: {
     name: '价格',
@@ -110,7 +110,7 @@ watchEffect(() => {
 
       // Extract data for plotting
       if (hasPriceSell) {
-        option.value.series?.push({
+        (option.value.series as LineSeriesOption[]).push({
           name: currency.currencyCNName + ' 卖出价',
           type: 'line',
           data: currency.series.map(item => [item.timestamp, item.price_sell]),
@@ -123,7 +123,7 @@ watchEffect(() => {
         });
       }
       if (hasPriceBuy) {
-        option.value.series?.push({
+        (option.value.series as LineSeriesOption[]).push({
           name: currency.currencyCNName + ' 买入价',
           type: 'line',
           data: currency.series.map(item => [item.timestamp, item.price_buy]),
@@ -138,11 +138,12 @@ watchEffect(() => {
     });
 
     // set title
+    // title
     option.value.title = {
       text: srcData.data.length > 1? '货币汇率走势图': srcData.data[0].currencyENName + '-CNY 汇率走势图',
-      left: '3%',
-      top: '3%',
-      textStyle: {
+          left: '3%',
+          top: '3%',
+          textStyle: {
         fontFamily: 'Arial',
       }
     };
